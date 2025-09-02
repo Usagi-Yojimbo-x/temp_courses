@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -10,15 +9,18 @@ st.title("Upload excel file and view courses and credits earned")
 
 st.write("")
 st.write("")
-img = Image.open('screenshot.png')
+img = Image.open('/workspaces/temp_courses/streamlit_app/screenshot.png')
 st.image(img, caption='Where to download the file')
 st.write("")
-file = st.file_uploader("Upload an excel file download from sejong portal", type='xlsx')
+file = st.file_uploader("Upload an excel file downloaded from sejong portal", type='xlsx')
 
 
 # read the file
 if file is not None:
-    df = pd.read_excel('course.xlsx')
+    df = pd.read_excel(file)
+else:
+    st.info("Please upload an excel file")
+    st.stop()
 
 # drop and rename the columns
 df = df[['Unnamed: 4', 'Unnamed: 5', 'Unnamed: 8']].drop([0,1,2]).reset_index(drop=True)
