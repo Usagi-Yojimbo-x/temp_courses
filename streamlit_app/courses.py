@@ -9,7 +9,7 @@ st.title("Upload excel file and view courses and credits earned")
 
 st.write("")
 st.write("")
-img = Image.open('/workspaces/temp_courses/streamlit_app/screenshot.png')
+img = Image.open('streamlit_app/screenshot.png')
 st.image(img, caption='Where to download the file')
 st.write("")
 file = st.file_uploader("Upload an excel file downloaded from sejong portal", type='xlsx')
